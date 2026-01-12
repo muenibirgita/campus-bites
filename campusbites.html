@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Bites Eatery</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  background-color: #34495e;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+section {
+  padding: 20px;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card button {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.card button:hover {
+  background-color: #219150;
+}
+
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+}
+
+.order-box {
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+  </style>
+</head>
+<body>  <header>
+    <h1>Campus Bites Eatery</h1>
+    <p>Affordable meals for students</p>
+  </header>  <nav>
+    <a href="#home">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#order">Order</a>
+    <a href="#contact">Contact</a>
+  </nav>  <section id="home">
+    <h2>Welcome</h2>
+    <p>Campus Bites is a student-friendly eatery offering affordable, tasty meals right on campus.</p>
+  </section>  <section id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu">
+      <div class="card">
+        <h3>Chapati & Beans</h3>
+        <p>KES 80</p>
+        <button onclick="addToOrder('Chapati & Beans')">Add to Order</button>
+      </div>
+      <div class="card">
+        <h3>Rice & Beef</h3>
+        <p>KES 150</p>
+        <button onclick="addToOrder('Rice & Beef')">Add to Order</button>
+      </div>
+      <div class="card">
+        <h3>Ugali & Sukuma</h3>
+        <p>KES 50</p>
+        <button onclick="addToOrder('Ugali & Sukuma')">Add to Order</button>
+      </div>
+      <div class="card">
+        <h3>Tea & Mandazi</h3>
+        <p>KES 40</p>
+        <button onclick="addToOrder('Tea & Mandazi')">Add to Order</button>
+      </div>
+    </div>
+  </section>  <section id="order">
+    <h2>Your Order</h2>
+    <div class="order-box">
+      <ul id="orderList"></ul>
+      <button onclick="placeOrder()">Place Order</button>
+    </div>
+  </section>  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: campusbites@student.ac.ke</p>
+    <p>Phone: 0795416348</p>
+  </section>  <footer>
+    <p>&copy; 2026 Campus Bites Eatery E37-11292-2024</p>
+  </footer>  <script>
+    let orders = [];
+
+    function addToOrder(item) {
+      orders.push(item);
+      displayOrders();
+    }
+
+    function displayOrders() {
+      let list = document.getElementById('orderList');
+      list.innerHTML = '';
+      orders.forEach(order => {
+        let li = document.createElement('li');
+        li.textContent = order;
+        list.appendChild(li);
+      });
+    }
+
+    function placeOrder() {
+      if (orders.length === 0) {
+        alert('Please add items to your order first.');
+      } else {
+        alert('Order placed successfully!');
+        orders = [];
+        displayOrders();
+      }
+    }
+  </script></body>
+</html>
